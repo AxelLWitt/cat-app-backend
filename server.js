@@ -48,13 +48,13 @@ app.use(express.json());
 
 // create a test route
 app.get('/', (req, res) => {
-  res.send('hello world');
+  res.send('hello cats!');
 });
 
 // Index Route
-app.get('/people', async (req, res) => {
+app.get('/cat', async (req, res) => {
   try {
-    res.status(200).json(await People.find({}));
+    res.status(200).json(await Cat.find({}));
   } catch (error) {
     res.status(400).json({ message: 'something went wrong' });
   }
@@ -62,28 +62,28 @@ app.get('/people', async (req, res) => {
 
 
 // Create Route
-app.post('/people', async (req, res) => {
+app.post('/cat', async (req, res) => {
   try {
-    res.status(201).json(await People.create(req.body));
+    res.status(201).json(await Cat.create(req.body));
   } catch (error) {
     res.status(400).json({ message: 'something went wrong' });
   }
 });
 
 // Delete Route
-app.delete('/people/:id', async (req, res) => {
+app.delete('/cat/:id', async (req, res) => {
   try {
-    res.status(200).json(await People.findByIdAndDelete(req.params.id));
+    res.status(200).json(await Cat.findByIdAndDelete(req.params.id));
   } catch (error) {
     res.status(400).json({ message: 'something went wrong' });
   }
 })
 
 // Update Route
-app.put(`/people/:id`, async (req, res) => {
+app.put(`/cat/:id`, async (req, res) => {
   try {
     res.status(200).json(
-      await People.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      await Cat.findByIdAndUpdate(req.params.id, req.body, { new: true })
     );
   } catch (error) {
     res.status(400).json({ message: 'something went wrong' });
