@@ -27,13 +27,13 @@ mongoose.connection
 ///////////////////////////////
 // Models
 ////////////////////////////////
-const PeopleSchema = new mongoose.Schema({
+const CatSchema = new mongoose.Schema({
   name: String,
   image: String,
   title: String,
 }, { timestamps: true });
 
-const People = mongoose.model('People', PeopleSchema);
+const Cat = mongoose.model('Cat', CatSchema);
 
 ///////////////////////////////
 // Mount Middleware
